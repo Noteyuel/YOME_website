@@ -1,0 +1,180 @@
+.hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 2rem;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      rgba(74, 51, 115, 0.95) 0%,
+      rgba(107, 79, 159, 0.9) 50%,
+      rgba(212, 175, 55, 0.85) 100%);
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(233, 30, 140, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.2) 0%, transparent 50%);
+  z-index: 2;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-text {
+  color: var(--white);
+  max-width: 700px;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.hero-decorations {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.balloon {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(0.5px);
+  animation: float 6s ease-in-out infinite;
+}
+
+.balloon-1 {
+  width: 120px;
+  height: 140px;
+  background: radial-gradient(circle at 30% 30%, rgba(107, 79, 159, 0.4), rgba(74, 51, 115, 0.2));
+  top: 15%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.balloon-2 {
+  width: 100px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.4), rgba(240, 217, 142, 0.2));
+  top: 35%;
+  right: 25%;
+  animation-delay: 1s;
+}
+
+.balloon-3 {
+  width: 90px;
+  height: 110px;
+  background: radial-gradient(circle at 30% 30%, rgba(233, 30, 140, 0.4), rgba(233, 30, 140, 0.2));
+  top: 60%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.balloon-4 {
+  width: 110px;
+  height: 130px;
+  background: radial-gradient(circle at 30% 30%, rgba(139, 114, 189, 0.4), rgba(107, 79, 159, 0.2));
+  top: 80%;
+  right: 30%;
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+
+  75% {
+    transform: translateY(-25px) translateX(5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding-top: 100px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-decorations {
+    opacity: 0.5;
+  }
+
+  .balloon {
+    transform: scale(0.7);
+  }
+}
